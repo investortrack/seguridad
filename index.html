@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Cesantía Chile - Guía de Créditos y Seguros</title>
+    <style>
+        :root {
+            --color-primary: #2180a0;
+            --color-primary-dark: #1a6480;
+            --color-success: #2db896;
+            --color-warning: #f39c12;
+            --color-danger: #e74c3c;
+            --color-bg: #f8f9fa;
+            --color-surface: #ffffff;
+            --color-text: #2c3e50;
+            --color-text-light: #7f8c8d;
+            --color-border: #e0e0e0;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .hero-section {
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .hero-section h2 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 0.8rem 1.5rem;
+            background: var(--color-surface);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: var(--color-text);
+        }
+
+        .nav-tab.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .nav-tab:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-card {
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .step-card p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .step-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-card li {
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .step-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+        }
+
+        .ranking-container {
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .ranking-header {
+            background: var(--color-primary);
+            color: white;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+            gap: 1rem;
+            font-weight: 600;
+        }
+
+        .ranking-item {
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+            gap: 1rem;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+            transition: background 0.2s ease;
+        }
+
+        .ranking-item:hover {
+            background: var(--color-bg);
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-position {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+
+        .rank-name {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .rank-coverage {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            background: var(--color-success);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .rank-link {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(33, 128, 160, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--color-warning);
+        }
+
+        .btn-secondary:hover {
+            background: #d68910;
+        }
+
+        .alert {
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: rgba(33, 128, 160, 0.1);
+            border-left-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .alert-warning {
+            background: rgba(243, 156, 18, 0.1);
+            border-left-color: var(--color-warning);
+            color: var(--color-warning);
+        }
+
+        .alert-success {
+            background: rgba(45, 184, 150, 0.1);
+            border-left-color: var(--color-success);
+            color: var(--color-success);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 75px;
+            top: 40px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: var(--color-border);
+        }
+
+        .timeline-item:last-child:before {
+            display: none;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 0.95rem;
+        }
+
+        .timeline-content {
+            background: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .timeline-content h3 {
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: var(--radius);
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .ranking-header,
+            .ranking-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .ranking-header {
+                display: none;
+            }
+
+            .ranking-item {
+                background: var(--color-bg);
+                margin-bottom: 1rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                width: 100%;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .timeline-item:before {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>💰 Protección Financiera ante Desempleo</h1>
+        <p>Guía educativa para entender créditos con cobertura de cesantía</p>
+    </div>
+
+    <div class="container">
+        <div class="hero-section">
+            <h2>📋 Planifica tu Estabilidad Financiera</h2>
+            <p>Si anticipas un período de desempleo, esta guía te ayudará a entender cómo los créditos de consumo con seguros de cesantía pueden proteger tu estabilidad financiera. Conocer todas tus opciones te permitirá tomar decisiones informadas sobre tu futuro.</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('pasos')">📍 Pasos Clave</button>
+            <button class="nav-tab" onclick="switchTab('timeline')">⏱️ Cronograma</button>
+            <button class="nav-tab" onclick="switchTab('ranking')">🏆 Ranking Bancos</button>
+            <button class="nav-tab" onclick="switchTab('simulador')">🧮 Simulador</button>
+            <button class="nav-tab" onclick="switchTab('faq')">❓ Preguntas</button>
+        </div>
+
+        <!-- PASOS SECTION -->
+        <div id="pasos" class="section active">
+            <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Pasos Inmediatos para Protegerte</h2>
+            
+            <div class="alert alert-warning">
+                <strong>📅 Planificación Anticipada:</strong> Con tiempo suficiente, puedes evaluaciones todas tus opciones. Una planificación cuidadosa garantiza que tomes la mejor decisión para tu situación financiera.
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Evalúa tu Situación</h3>
+                    <p>Calcula tus gastos mensuales y determina cuánto necesitas cubrir durante el desempleo.</p>
+                    <ul>
+                        <li>Gastos básicos (alimentación, servicios)</li>
+                        <li>Créditos e hipotecas existentes</li>
+                        <li>Seguros (salud, auto)</li>
+                        <li>Responsabilidades familiares</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Elige el Monto Ideal</h3>
+                    <p>Selecciona un crédito de consumo que cubra 3-6 meses de gastos críticos sin excederse.</p>
+                    <ul>
+                        <li>Monto alineado a tus gastos esenciales</li>
+                        <li>Plazo 24-48 meses recomendado</li>
+                        <li>Mantén cuota menor a 30% de ingreso</li>
+                        <li>Simula en comparadores antes de contratar</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Planifica el Timing de tu Crédito</h3>
+                    <p>Si anticipas cambios en tu situación laboral, planifica estratégicamente cuándo contratar el crédito para optimizar la cobertura.</p>
+                    <ul>
+                        <li>Evita contratar demasiado pronto si no hay riesgo cercano</li>
+                        <li>Considera plazos de carencia del seguro (30-60 días)</li>
+                        <li>Idealmente contrata 1-2 meses antes del posible despido</li>
+                        <li>Asegúrate de poder pagar las primeras cuotas hasta la activación</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Revisa las Condiciones del Crédito</h3>
+                    <p>Antes de firmar, analiza en detalle las características del crédito y su seguro.</p>
+                    <ul>
+                        <li><strong>Carencia:</strong> Días que esperas antes que el seguro sea vigente (30-60 días típico)</li>
+                        <li><strong>Tope de Cuota:</strong> Monto máximo de cuota que cubre el seguro por mes</li>
+                        <li>Máximo de cuotas cubiertas totales (típicamente 3-6 cuotas)</li>
+                        <li>Comisiones, impuestos y costos adicionales desglosados</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Contrata con Seguro</h3>
+                    <p>Solicita el crédito de consumo con seguro de cesantía explícitamente incluido y revisa su póliza.</p>
+                    <ul>
+                        <li>Verifica que el seguro sea opcional (no obligatorio)</li>
+                        <li>Exige copia completa de la póliza de cesantía</li>
+                        <li>Revisa requisitos de antigüedad laboral y tipo de contrato</li>
+                        <li>Confirma exclusiones, carencia y condiciones de vigencia</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3>Activa la Póliza</h3>
+                    <p>Realiza pagos de las primeras cuotas para que el seguro se active correctamente.</p>
+                    <ul>
+                        <li>Paga al menos 1-2 cuotas por tu cuenta</li>
+                        <li>Guarda comprobantes de pago</li>
+                        <li>Verifica estado en portal del banco</li>
+                        <li>Contacta si hay dudas sobre cobertura</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">7</div>
+                    <h3>Documenta Todo</h3>
+                    <p>Prepara la documentación necesaria para reclamar cuando llegue la cesantía.</p>
+                    <ul>
+                        <li>Contrato laboral original</li>
+                        <li>Últimas liquidaciones de sueldo</li>
+                        <li>Cotizaciones AFC vigentes</li>
+                        <li>Copia de póliza del seguro</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">8</div>
+                    <h3>Reclamo Post-Despido</h3>
+                    <p>Una vez despedido, notifica inmediatamente al banco/aseguradora con finiquito.</p>
+                    <ul>
+                        <li>Envía finiquito dentro del plazo que indica la póliza</li>
+                        <li>Adjunta certificado de cotizaciones</li>
+                        <li>El seguro paga directamente las cuotas al banco</li>
+                        <li>Sigue el proceso hasta recibir confirmación escrita</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>💡 Consejo:</strong> Usa el Comparador de Créditos del SERNAC (<a href="https://www.sernac.cl/comparadorcreditos" target="_blank" style="color: var(--color-primary); text-decoration: underline;">www.sernac.cl/comparadorcreditos</a>) antes de decidir. Simula con 3 opciones de montos y plazos para encontrar la más económica.
+            </div>
+        </div>
+
+        <!-- TIMELINE SECTION -->
+        <div id="timeline" class="section">
+            <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Cronograma de Acciones</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Semana 1</div>
+                    <div class="timeline-content">
+                        <h3>Evaluación y Simulación</h3>
+                        <p>Calcula gastos, elige monto, simula en SERNAC y comparadores. Contacta 3 bancos para cotizaciones.</p>
+                        <button class="btn" onclick="window.open('https://www.sernac.cl/comparadorcreditos', '_blank')">Ir al Comparador SERNAC</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Semana 2</div>
+                    <div class="timeline-content">
+                        <h3>Selección e Inicio de Trámite</h3>
+                        <p>Elige el banco con mejor relación costo-beneficio. Inicia solicitud con énfasis en seguro de cesantía.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Semana 3</div>
+                    <div class="timeline-content">
+                        <h3>Contratación Oficial</h3>
+                        <p>Firma contrato, recibe copia de póliza, revisa todas las condiciones. Realiza primer pago de cuota.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Semana 4</div>
+                    <div class="timeline-content">
+                        <h3>Activación y Documentación</h3>
+                        <p>Realiza segunda cuota (si requiere activación). Prepara toda documentación para el reclamo futuro.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Después del Despido</div>
+                    <div class="timeline-content">
+                        <h3>Reclamo Inmediato</h3>
+                        <p>Notifica al banco dentro de 30 días con finiquito. Proporciona toda la documentación requerida. Sigue el proceso.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>✓ Beneficio de la Planificación:</strong> Anticiparte permite evaluar opciones sin presión, asegurando que cualquier decisión se alinee con tus necesidades financieras reales.
+            </div>
+        </div>
+
+        <!-- RANKING SECTION -->
+        <div id="ranking" class="section">
+            <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Ranking de Bancos - Créditos con Seguro Cesantía</h2>
+
+            <div class="alert alert-info">
+                <strong>📌 Nota:</strong> Este ranking se basa en solidez financiera, disponibilidad de seguros y facilidad de reclamo. Siempre simula tu caso específico antes de contratar.
+            </div>
+
+            <div class="ranking-container">
+                <div class="ranking-header">
+                    <div>Posición</div>
+                    <div>Banco / Institución</div>
+                    <div>Cobertura Típica</div>
+                    <div>Ventaja Principal</div>
+                    <div>Acción</div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-position">1️⃣</div>
+                    <div>
+                        <div class="rank-name">Banco Santander</div>
+                        <div class="rank-coverage">3-6 cuotas, proceso transparente</div>
+                    </div>
+                    <div><span class="rank-badge">Establecido</span></div>
+                    <div>Amplia disponibilidad de información</div>
+                    <div class="rank-link">
+                        <a href="https://banco.santander.cl/personas/credito-de-consumo" target="_blank" class="btn">Conocer Opciones</a>
+                    </div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-position">2️⃣</div>
+                    <div>
+                        <div class="rank-name">Coopeuch</div>
+                        <div class="rank-coverage">4 cuotas, vigencia inmediata</div>
+                    </div>
+                    <div><span class="rank-badge">Accesible</span></div>
+                    <div>Cobertura desde contratación</div>
+                    <div class="rank-link">
+                        <a href="https://www.coopeuch.cl/personas/credito-consumo.html" target="_blank" class="btn">Conocer Opciones</a>
+                    </div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-position">3️⃣</div>
+                    <div>
+                        <div class="rank-name">Banco Falabella</div>
+                        <div class="rank-coverage">3-4 cuotas, opciones adaptables</div>
+                    </div>
+                    <div><span class="rank-badge">Adaptable</span></div>
+                    <div>Variedad de soluciones</div>
+                    <div class="rank-link">
+                        <a href="https://www.bancofalabella.cl/credito-de-consumo" target="_blank" class="btn">Conocer Opciones</a>
+                    </div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-position">4️⃣</div>
+                    <div>
+                        <div class="rank-name">BCI (Banco de Crédito e Inversiones)</div>
+                        <div class="rank-coverage">Cobertura integral y tecnología</div>
+                    </div>
+                    <div><span class="rank-badge">Digital</span></div>
+                    <div>Plataforma online accesible</div>
+                    <div class="rank-link">
+                        <a href="https://www.liderbci.cl/creditos" target="_blank" class="btn">Conocer Opciones</a>
+                    </div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-position">5️⃣</div>
+                    <div>
+                        <div class="rank-name">Scotiabank Chile</div>
+                        <div class="rank-coverage">Múltiples opciones de cobertura</div>
+                    </div>
+                    <div><span class="rank-badge">Integral</span></div>
+                    <div>Productos diversificados</div>
+                    <div class="rank-link">
+                        <a href="https://www.scotiabankchile.cl/credito-de-consumo" target="_blank" class="btn">Conocer Opciones</a>
+                    </div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-position">6️⃣</div>
+                    <div>
+                        <div class="rank-name">Banco Ripley</div>
+                        <div class="rank-coverage">Productos con protección laboral</div>
+                    </div>
+                    <div><span class="rank-badge">Protección</span></div>
+                    <div>Enfoque en empleabilidad</div>
+                    <div class="rank-link">
+                        <a href="https://www.bancoripley.cl/credito-consumo" target="_blank" class="btn">Conocer Opciones</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--color-surface); padding: 2rem; border-radius: var(--radius); margin-top: 2rem; box-shadow: var(--shadow);">
+                <h3 style="color: var(--color-primary); margin-bottom: 1rem;">🔍 Recursos para Comparar Opciones</h3>
+                <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Utiliza estas herramientas educativas para entender mejor las distintas opciones disponibles en el mercado.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <a href="https://www.sernac.cl/comparadorcreditos" target="_blank" class="btn" style="justify-self: center; width: 100%;">
+                        📊 Comparador SERNAC
+                    </a>
+                    <a href="https://www.comparaonline.cl" target="_blank" class="btn btn-secondary" style="justify-self: center; width: 100%;">
+                        🔄 ComparaOnline
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ SECTION -->
+        <div id="faq" class="section">
+            <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Preguntas Frecuentes</h2>
+
+            <div class="steps-container">
+                <div class="step-card">
+                    <h3>¿Es obligatorio el seguro de cesantía?</h3>
+                    <p>No, generalmente es opcional. Sin embargo, es <strong>altamente recomendable</strong> para tu caso particular, dado que anticipas despido involuntario. El costo es bajo (típicamente 0.5-1.5% del monto).</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Cuándo se activa el seguro?</h3>
+                    <p>Depende del banco. Algunos activan desde contratación (Coopeuch), otros requieren 1-2 cuotas pagadas. Verifica con el banco exactamente cuándo entra en vigor.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Cuántas cuotas cubre?</h3>
+                    <p>Típicamente 3-6 cuotas, aunque algunos bancos ofrecen hasta 8. El rango es UF 15-40 por cuota. Revisa tu póliza específica.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Qué necesito para reclamar?</h3>
+                    <p><strong>Documentos obligatorios:</strong> Finiquito, certificado de cotizaciones AFC, contrato laboral, copia de póliza. Debes reclamar dentro de 30 días post-despido.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿El despido debe ser involuntario?</h3>
+                    <p>Sí, el seguro solo cubre cesantía involuntaria (renuncias o despidos por falta grave no califican típicamente). Asegúrate de entender esta distinción.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Cuál es la mejor estrategia de crédito?</h3>
+                    <p>Es importante evaluar cuidadosamente tu capacidad de pago. Generalmente, un crédito bien planificado y estructurado es más sostenible que múltiples créditos pequeños. Considera siempre tu situación financiera integral.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Qué pasa si me rechazan el reclamo?</h3>
+                    <p>Tienes derecho a apelar. Contacta SERNAC (800 700 100) para mediación gratuita. También puedes consultar con una corredora de seguros sobre tus derechos.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Puedo usar un comparador como ComparaOnline?</h3>
+                    <p>Sí, ComparaOnline es una corredora supervigilada. Es útil para comparar, pero siempre accede al sitio oficial del banco para confirmar términos antes de firmar.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Hay ayuda estatal además del seguro privado?</h3>
+                    <p>Sí. El Fondo de Cesantía Solidario (FCS) y el Seguro de Cesantía estatal (AFC) ofrecen complemento. Con 10+ cotizaciones, tienes acceso a ~70% de remuneración inicial.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>¿Cuánto tiempo demora el pago del seguro?</h3>
+                    <p>Típicamente 15-30 días después de aprobar tu reclamo. Algunos bancos pueden ser más ágiles. Confirma plazos exactos en tu póliza.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 2rem;">
+                <strong>✓ Recurso Importante:</strong> Llama a <strong>SERNAC: 800 700 100</strong> (lunes-viernes, 09:00-19:00) para consultas gratuitas sobre tus derechos.
+            </div>
+        </div>
+
+        <!-- SIMULADOR SECTION -->
+        <div id="simulador" class="section">
+            <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Simulador de Beneficio - Seguro Cesantía</h2>
+
+            <div class="alert alert-info">
+                <strong>📌 Herramienta Educativa:</strong> Utiliza esta calculadora para entender de qué manera funcionan los seguros de cesantía en créditos de consumo. Los valores son solo para propósitos educativos y deben ser validados con cada institución financiera.
+            </div>
+
+            <div style="background: var(--color-surface); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    
+                    <!-- Columna 1: Inputs -->
+                    <div>
+                        <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-size: 1.1rem;">📊 Simula un Escenario</h3>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text);">Monto (en pesos)</label>
+                            <input type="number" id="monto" value="40000000" min="5000000" max="150000000" step="1000000" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius); font-size: 1rem;">
+                            <small style="color: var(--color-text-light);">Ej: 40.000.000 pesos</small>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text);">Plazo (meses)</label>
+                            <input type="number" id="plazo" value="12" min="12" max="60" step="1" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius); font-size: 1rem;">
+                            <small style="color: var(--color-text-light);">Rango: 12-60 meses</small>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text);">Tasa de Interés Anual (%)</label>
+                            <input type="number" id="tasa" value="14.78" min="5" max="25" step="0.1" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius); font-size: 1rem;">
+                            <small style="color: var(--color-text-light);">Típico: 8-15% anual</small>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text);">Banco / Seguro Seleccionado</label>
+                            <select id="banco" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius); font-size: 1rem;">
+                                <option value="4" data-carencia="0">🏦 Coopeuch - 4 cuotas (0 días carencia)</option>
+                                <option value="3" data-carencia="30">🏦 Banco Falabella - 3 cuotas (30 días)</option>
+                                <option value="5" data-carencia="30">🏦 Scotiabank - 5 cuotas (30 días)</option>
+                                <option value="6" data-carencia="30" selected>🏦 Banco Santander - 6 cuotas (30 días)</option>
+                                <option value="3" data-carencia="30">🏦 Banco Ripley - 3 cuotas (30 días)</option>
+                                <option value="4" data-carencia="45">🏦 BCI - 4 cuotas (45 días)</option>
+                                <option value="4" data-carencia="60">🏦 Banco de Chile - 4 cuotas (60 días)</option>
+                            </select>
+                            <small style="color: var(--color-text-light);">Cuotas cubiertas + período de carencia</small>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; background: rgba(243, 156, 18, 0.1); padding: 1rem; border-radius: var(--radius); border-left: 3px solid var(--color-warning);">
+                            <p style="color: var(--color-warning); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.5rem 0;">⏳ Período de Carencia</p>
+                            <p style="color: var(--color-text); font-weight: bold; margin: 0;" id="carenciaInfo">30 días</p>
+                            <small style="color: var(--color-text-light);">Espera antes que el seguro esté vigente</small>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-text);">Costo del Seguro Cesantía (% de cuota)</label>
+                            <input type="number" id="porcentajeSegurocesantia" value="2.5" min="0.5" max="5" step="0.1" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius); font-size: 1rem;">
+                            <small style="color: var(--color-text-light);">Típico: 1-3% de la cuota</small>
+                        </div>
+
+                        <button onclick="calcularBeneficio()" style="width: 100%; padding: 1rem; background: var(--color-primary); color: white; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-primary-dark)'" onmouseout="this.style.background='var(--color-primary)'">
+                            ✓ CALCULAR SIMULACIÓN
+                        </button>
+                    </div>
+
+                    <!-- Columna 2: Resultados Principales -->
+                    <div>
+                        <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-size: 1.1rem;">📊 Resultados Clave</h3>
+                        
+                        <div style="background: linear-gradient(135deg, rgba(33, 128, 160, 0.1) 0%, rgba(45, 184, 150, 0.1) 100%); padding: 1.5rem; border-radius: var(--radius); margin-bottom: 1rem; border-left: 5px solid var(--color-primary);">
+                            <p style="color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 0.3rem;">Cuota Mensual (sin seguros)</p>
+                            <h2 style="color: var(--color-primary); margin: 0 0 0.5rem 0; font-size: 1.6rem; font-weight: bold;" id="cuotaMensual">$0</h2>
+                            <small style="color: var(--color-text-light);">Principal + Intereses</small>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(45, 184, 150, 0.1) 100%); padding: 1.5rem; border-radius: var(--radius); margin-bottom: 1rem; border-left: 5px solid var(--color-warning);">
+                            <p style="color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 0.3rem;">Costo Mensual Seguro Cesantía</p>
+                            <h2 style="color: var(--color-warning); margin: 0 0 0.5rem 0; font-size: 1.6rem; font-weight: bold;" id="costoSeguromensual">$0</h2>
+                            <small style="color: var(--color-text-light);">Se suma a tu cuota</small>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, rgba(45, 184, 150, 0.15) 0%, rgba(33, 128, 160, 0.1) 100%); padding: 1.5rem; border-radius: var(--radius); border-left: 5px solid var(--color-success); border-top: 3px solid var(--color-success);">
+                            <p style="color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 0.3rem;">💚 BENEFICIO DEL SEGURO</p>
+                            <h2 style="color: var(--color-success); margin: 0 0 0.5rem 0; font-size: 1.8rem; font-weight: bold;" id="beneficioTotal">$0</h2>
+                            <small style="color: var(--color-text-light);">Monto total que pagaría por ti</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESGLOSE DETALLADO -->
+            <div style="background: var(--color-surface); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                <h3 style="color: var(--color-primary); margin-bottom: 1.5rem; font-size: 1.1rem;">📋 Desglose Detallado de la Simulación</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div style="background: var(--color-bg); padding: 1rem; border-radius: var(--radius); text-align: center;">
+                        <p style="color: var(--color-text-light); font-size: 0.85rem; margin-bottom: 0.5rem;">Cuotas Cubiertas</p>
+                        <h3 style="color: var(--color-primary); margin: 0; font-size: 1.6rem;" id="cuotasCubiertas">0</h3>
+                        <small style="color: var(--color-text-light);">meses de alivio</small>
+                    </div>
+
+                    <div style="background: var(--color-bg); padding: 1rem; border-radius: var(--radius); text-align: center;">
+                        <p style="color: var(--color-text-light); font-size: 0.85rem; margin-bottom: 0.5rem;">Deuda Total</p>
+                        <h3 style="color: var(--color-text); margin: 0; font-size: 1.6rem;" id="deudaTotal">$0</h3>
+                        <small style="color: var(--color-text-light);">monto a pagar</small>
+                    </div>
+
+                    <div style="background: var(--color-bg); padding: 1rem; border-radius: var(--radius); text-align: center;">
+                        <p style="color: var(--color-text-light); font-size: 0.85rem; margin-bottom: 0.5rem;">% de Deuda Cubierto</p>
+                        <h3 style="color: var(--color-success); margin: 0; font-size: 1.6rem;" id="porcentajeCubierto">0%</h3>
+                        <small style="color: var(--color-text-light);">protección</small>
+                    </div>
+                </div>
+
+                <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--color-border);">
+
+                <div style="background: rgba(33, 128, 160, 0.08); padding: 1.5rem; border-radius: var(--radius); border-left: 4px solid var(--color-primary);">
+                    <h4 style="color: var(--color-primary); margin-bottom: 1rem; margin-top: 0;">📌 Resumen Financiero</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.95rem;">
+                        <div>
+                            <p style="color: var(--color-text-light); margin-bottom: 0.3rem;">Monto Solicitado</p>
+                            <p style="color: var(--color-text); font-weight: 600; margin: 0;" id="montoSolicitado">$0</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--color-text-light); margin-bottom: 0.3rem;">Total Intereses</p>
+                            <p style="color: var(--color-text); font-weight: 600; margin: 0;" id="totalIntereses">$0</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--color-text-light); margin-bottom: 0.3rem;">Costo Total Seguro (todos los meses)</p>
+                            <p style="color: var(--color-text); font-weight: 600; margin: 0;" id="costoTotalSeguro">$0</p>
+                        </div>
+                        <div>
+                            <p style="color: var(--color-text-light); margin-bottom: 0.3rem;">Cuota Completa (con seguro)</p>
+                            <p style="color: var(--color-text); font-weight: 600; margin: 0;" id="cuotaCompleta">$0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Disclaimer Importante:</strong> Esta herramienta tiene únicamente propósitos educativos. Los valores que se muestran son aproximaciones y no representan cotizaciones reales. Las cuotas finales incluyen comisiones, notaría, impuestos y otros costos que varían según cada institución. Las condiciones específicas del seguro de cesantía —número de cuotas cubiertas, topes de cobertura, períodos de carencia— dependen completamente de la póliza de cada banco. Es responsabilidad del usuario validar toda la información directamente con la institución financiera elegida antes de tomar cualquier decisión.
+            </div>
+
+            <div style="background: var(--color-surface); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow);">
+                <h3 style="color: var(--color-primary); margin-bottom: 1rem;">📚 Cómo Funciona el Cálculo</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">1</span>
+                        <strong>Cuota Mensual:</strong> Se calcula con la fórmula de crédito: Monto × (tasa × (1+tasa)^meses) / ((1+tasa)^meses - 1)
+                    </li>
+                    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">2</span>
+                        <strong>Seguro Cesantía:</strong> Costo = cuota mensual × (% seguro / 100). Se paga todos los meses.
+                    </li>
+                    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">3</span>
+                        <strong>Beneficio:</strong> Si pierdas trabajo = cuotas cubiertas × cuota mensual. El seguro paga directamente al banco.
+                    </li>
+                    <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                        <span style="position: absolute; left: 0; color: var(--color-primary); font-weight: bold;">4</span>
+                        <strong>Deuda Total:</strong> (Monto × plazo) + (cuota × % seguro × plazo). Es lo que pagarás en total.
+                    </li>
+                </ul>
+            </div>
+
+            <div style="background: var(--color-bg); border-radius: var(--radius); padding: 2rem; margin-top: 2rem;">
+                <h3 style="color: var(--color-text); margin-bottom: 1rem;">📚 Caso Educativo Ilustrativo</h3>
+                <p style="color: var(--color-text-light); margin-bottom: 1rem;">
+                    <strong>Escenario de ejemplo:</strong> Crédito hipotético de $40.000.000 a 12 meses a 14.78% anual con cobertura de seguro. Este es solo un ejemplo para ilustrar conceptos.
+                </p>
+                <ul style="list-style: none; padding: 0; color: var(--color-text-light); font-size: 0.95rem;">
+                    <li style="margin-bottom: 0.8rem;">✓ <strong>Cuota mensual (sin seguro):</strong> $3.650.919</li>
+                    <li style="margin-bottom: 0.8rem;">✓ <strong>Costo seguro cesantía (2.5%):</strong> $91.273/mes</li>
+                    <li style="margin-bottom: 0.8rem;">✓ <strong>Cuota con seguro:</strong> $3.742.192</li>
+                    <li style="margin-bottom: 0.8rem;">✓ <strong>Total deuda (12 meses):</strong> $43.811.027</li>
+                    <li style="margin-bottom: 0.8rem;">✓ <strong>Si te despiden:</strong> El seguro paga 6 cuotas = $21.853.152 (49% de la deuda)</li>
+                    <li style="margin-bottom: 0.8rem;">✓ <strong>Alivio financiero:</strong> 6 meses sin pagar cuota mientras buscas empleo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>📞 Recursos Útiles</h3>
+        <p style="margin: 1rem 0;">
+            <a href="https://www.chileatiende.gob.cl/fichas/62932-seguro-de-cesantia" target="_blank">ChileAtiende - Seguro de Cesantía</a> | 
+            <a href="https://www.afc.cl" target="_blank">AFC - Administradora de Fondos de Cesantía</a> | 
+            <a href="https://www.dt.gob.cl" target="_blank">Ministerio del Trabajo</a>
+        </p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">
+            Esta guía es informativa. Consulta con profesionales antes de tomar decisiones financieras. Última actualización: Noviembre 2025.
+        </p>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add smooth scroll behavior for links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        function calcularBeneficio() {
+            // Get input values
+            const monto = parseFloat(document.getElementById('monto').value) || 0;
+            const plazo = parseFloat(document.getElementById('plazo').value) || 12;
+            const tasa = parseFloat(document.getElementById('tasa').value) || 7.5;
+            const cuotasCubiertas = parseFloat(document.getElementById('banco').value) || 3;
+            const porcentajeSegurocesantia = parseFloat(document.getElementById('porcentajeSegurocesantia').value) || 2.5;
+
+            // Get carencia from selected option
+            const bancoSelect = document.getElementById('banco');
+            const selectedOption = bancoSelect.options[bancoSelect.selectedIndex];
+            const carencia = selectedOption.getAttribute('data-carencia') || '30';
+            document.getElementById('carenciaInfo').textContent = carencia + ' días';
+
+            // Calculate monthly rate
+            const tasaMensual = (tasa / 100) / 12;
+
+            // Calculate monthly payment (amortization formula)
+            const cuotaMensual = monto * (tasaMensual * Math.pow(1 + tasaMensual, plazo)) / 
+                                 (Math.pow(1 + tasaMensual, plazo) - 1);
+
+            // Calculate insurance cost per month
+            const costoSeguromensual = cuotaMensual * (porcentajeSegurocesantia / 100);
+
+            // Total monthly payment (with insurance)
+            const cuotaCompleta = cuotaMensual + costoSeguromensual;
+
+            // Total debt
+            const deudaTotal = cuotaCompleta * plazo;
+
+            // Insurance benefit (installments covered)
+            const beneficioTotal = cuotaMensual * cuotasCubiertas;
+
+            // Percentage covered
+            const porcentajeCubierto = (beneficioTotal / monto) * 100;
+
+            // Total interests
+            const totalIntereses = (cuotaMensual * plazo) - monto;
+
+            // Total insurance cost (all months)
+            const costoTotalSeguro = costoSeguromensual * plazo;
+
+            // Format currency function
+            const formatCurrency = (value) => {
+                return new Intl.NumberFormat('es-CL', {
+                    style: 'currency',
+                    currency: 'CLP',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(value);
+            };
+
+            // Update UI elements
+            document.getElementById('cuotaMensual').textContent = formatCurrency(cuotaMensual);
+            document.getElementById('costoSeguromensual').textContent = formatCurrency(costoSeguromensual);
+            document.getElementById('beneficioTotal').textContent = formatCurrency(beneficioTotal);
+            document.getElementById('cuotasCubiertas').textContent = Math.round(cuotasCubiertas);
+            document.getElementById('deudaTotal').textContent = formatCurrency(deudaTotal);
+            document.getElementById('porcentajeCubierto').textContent = Math.round(porcentajeCubierto) + '%';
+            document.getElementById('montoSolicitado').textContent = formatCurrency(monto);
+            document.getElementById('totalIntereses').textContent = formatCurrency(totalIntereses);
+            document.getElementById('costoTotalSeguro').textContent = formatCurrency(costoTotalSeguro);
+            document.getElementById('cuotaCompleta').textContent = formatCurrency(cuotaCompleta);
+        }
+
+        // Run calculation on page load with default values
+        window.addEventListener('load', function() {
+            calcularBeneficio();
+        });
+
+        // Run calculation when inputs change
+        document.addEventListener('change', function(e) {
+            if (e.target.matches('#monto, #plazo, #tasa, #banco, #porcentajeSegurocesantia')) {
+                calcularBeneficio();
+            }
+        });
+
+        // Run calculation when inputs are typed
+        document.addEventListener('input', function(e) {
+            if (e.target.matches('#monto, #plazo, #tasa, #banco, #porcentajeSegurocesantia')) {
+                calcularBeneficio();
+            }
+        });
+    </script>
+</body>
+</html>
